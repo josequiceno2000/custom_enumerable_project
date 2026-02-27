@@ -49,6 +49,19 @@ module Enumerable
 
     accumulator
   end
+
+  def my_map
+    return to_enum(:my_map) unless block_given?
+
+    output = []
+
+    self.my_each do |element|
+      output << yield(element)
+    end
+
+    output
+  end
+
 end
 
 # You will first have to define my_each
