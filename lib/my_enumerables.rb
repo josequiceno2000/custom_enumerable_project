@@ -16,6 +16,18 @@ module Enumerable
     false
   end
 
+  def my_count
+    count = 0
+    
+    if block_given?
+      self.my_each { |element| count +=1 if yield(element) }
+    else
+      self.my_each { count += 1 }
+    end
+    
+    count
+  end
+
 
 end
 
